@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetServiceService} from '../../services/get-service.service'
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  answer: Array<any>
+  constructor(private getService: GetServiceService) { }
 
   ngOnInit() {
+    this.showAll();
+  }
+
+  showAll(){
+    this.getService.getAppareilsFromServer().subscribe(data => {
+      this.answer = data;
+      console.log(this.answer)
+    })
   }
 
 }
