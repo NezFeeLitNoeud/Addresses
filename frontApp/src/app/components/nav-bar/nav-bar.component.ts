@@ -8,18 +8,11 @@ import { GetServiceService} from '../../services/get-service.service'
 })
 export class NavBarComponent implements OnInit {
 
-  answer: Array<any>
+  addresses: Array<any>
   constructor(private getService: GetServiceService) { }
 
   ngOnInit() {
-    this.showAll();
-  }
 
-  showAll(){
-    this.getService.getAppareilsFromServer().subscribe(data => {
-      this.answer = data;
-      console.log(this.answer)
-    })
   }
 
 }

@@ -1,3 +1,22 @@
-<p>
-  show-address works!
-</p>
+<div id="wrapper" class="border-b-2">
+  <h1 class="text-4xl text-center mt-6 font-bold font-mono">ADDRESSES AVAILABLE :</h1>
+ <!-- UN -->
+<div *ngFor="let address of getService.results; let index = index;"  class="max-w-sm mx-10 my-8 h-32 bg-white shadow-lg rounded-lg overflow-hidden border inline-block principale" >
+     <div  class="sm:flex sm:items-center px-6 py-4">
+      
+         <div class="rounded-full h-16 w-16 flex items-center justify-center border-black border">
+             <p id="id-address" class="text-sm leading-tight" >{{address.id}}</p>
+         </div>
+            
+       <div class="w-24 sm:mt-0 sm:ml-4 text-center sm:text-left">
+         <p id="country" class="text-xl leading-tight">{{address.country}}</p>
+         <p id="city" class="text-sm leading-tight text-gray-600">{{address.city}}</p>
+         <p id="street" class="text-sm leading-tight text-gray-600">{{address.street}}</p>
+         <p id="zipcode" class="text-sm leading-tight text-gray-600">{{address.zipcode}}</p>
+       </div>
+       <div class="mt-5 sm:mt-0 sm:ml-32 text-center sm:text-left">
+         <p id="delete" class="text-base text-red-600 font-extrabold leading-tight" (click)="delete(address.id)">X</p>
+       </div>
+     </div>
+   </div>  
+</div>
