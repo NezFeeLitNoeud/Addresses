@@ -49,11 +49,11 @@ export class GetServiceService {
     const url = `http://localhost:8082/addresses/${id}`;
     return this.httpClient.delete(url,this.httpOptions)
       .toPromise()
-      .then(() => null)
+      .then(res => console.log(res))
       .catch(this.handleError);
   }
   
   handleError(){
-    console.log('oops')
+    console.log('Something wrong')
   }
 }

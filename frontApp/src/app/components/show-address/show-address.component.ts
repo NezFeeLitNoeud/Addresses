@@ -7,19 +7,21 @@ import { GetServiceService} from '../../services/get-service.service'
   styleUrls: ['./show-address.component.css']
 })
 export class ShowAddressComponent implements OnInit {
-  addresses: Array<any>
+
   constructor(private getService: GetServiceService) { }
 
   ngOnInit() {
     this.showAll();
   }
 
+  // Amélioration : Rajouter un nom et prenom + l'afficher sur la carte au lieux de tout le reste.
+  // pouvoir et cliquer sur la carte et afficher les adresses
   showAll(){
     this.getService.getAppareilsFromServer()
   }
 
-  delete(id: number) {
-    this.getService.delete(id);
-    console.log(id)
+  async delete(id: number) {
+    await this.getService.delete(id);
+    this.getService.results.splice(this.getService.results.findIndex(address => address.id === id), 1);
   }
 }
